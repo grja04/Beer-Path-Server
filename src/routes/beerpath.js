@@ -1,54 +1,152 @@
-
 const express = require('express')
 const beerpath = require('./../usecases/beerpath')
 
 const router = express.Router()
 
-router.get('/', async (request, response)  => {
-    const allBeer = await beerpath.getAll()
+//user//
+
+router.post('/', async (request, response) => {
+    const {
+        email,
+        username,
+        password
+    } = request.body
+    const userCreated = await user.create(email, username, password)
 
     response.json({
         success: true,
-        data: allBeer
+        data: userCreated
     })
 })
 
 router.get('/:id', async (request, response) => {
- const beerById = await beer.getById(request.params.id)
+    const userById = await user.getById(request.params.id)
 
- response.json({
-    success:true,
-    data: beerById
+    response.json({
+        success: true,
+        data: userById
     })
 })
 
-router.post('/', async(request, response) => {
-    const { name, age } = request.body
-    const beerCreated = await beer.create(name, age)
-    
+router.patch('/', async (request, response) => { //dudas//
+    const {
+        email,
+        username,
+        password
+    } = request.body
+    const userPatched = await user.findByIdAndUpdate(request.params.id)
+
+    response.json({
+        success: true,
+        data: userPatched
+    })
+})
+
+router.delete('/:id', async (request, response) => {
+
+    const userDeleted = await user.findByIdAndDelete(request.params.id)
+
+    response.json({
+        success: true,
+        data: userDeleted
+    })
+})
+
+//Beer//
+
+router.post('/', async (request, response) => {
+    const {
+        beerName,
+        producer
+    } = request.body
+    const beerCreated = await beer.create(beerName, producer)
+
     response.json({
         success: true,
         data: beerCreated
     })
 })
-router.delete('/:id', async(request, response) => {
-    
+
+router.get('/:id', async (request, response) => {
+    const beerById = await beer.getById(request.params.id)
+
+    response.json({
+        success: true,
+        data: beerById
+    })
+})
+
+router.patch('/', async (request, response) => { //
+    const {
+        name,
+        producer
+    } = request.body
+    const beerPatched = await user.findByIdAndUpdate(request.params.id)
+
+    response.json({
+        success: true,
+        data: beerPatched
+    })
+})
+
+router.delete('/:id', async (request, response) => {
+
     const beerDeleted = await beer.findByIdAndDelete(request.params.id)
-    
+
     response.json({
         success: true,
         data: beerDeleted
     })
 })
 
-router.patch('/', async(request, response) => {
-    //recibe name y age by body
-    const { name, age } = request.body
-    const beerPatched = await beer.findByIdAndUpdate(request.params.id)
-    
+
+//POST//
+
+router.post('/', async (request, response) => {
+    const {
+        user,
+        beerName,
+        location,
+        price,
+        review
+    } = request.body
+    const commentCreated = await comment.create(user, beerName, location, price, review)
+
     response.json({
         success: true,
-        data: beerPatched
+        data: commentCreated
+    })
+})
+
+router.get('/:id/post', async (request, response) => {           //Duda en este //
+    const userById = await user.getById(request.params.id)
+
+    response.json({
+        success: true,
+        data: userById //historial de post//
+    })
+})
+
+router.patch('/', async (request, response) => {
+    const {
+        comment,
+        
+    } = request.body
+    const commentPatched = await comment.findByIdAndUpdate(request.params.id)
+
+    response.json({
+        success: true,
+        data: commentPatched
+    })
+})
+
+router.delete('/:id', async (request, response) => {
+
+    const commentDeleted = await comment.findByIdAndDelete(request.params.id)
+
+    response.json({
+        success: true,
+        data: commentDeleted
     })
 })
 
