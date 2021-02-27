@@ -1,12 +1,12 @@
 const express = require('express')
 const cors = require('cors')
-const kodersRouter = require('./routes/koders')
+const userRouter = require('./routes/user')
 const authRouter = require('./routes/auth')
 const server = express()
 
 server.use(cors())
 server.use(express.json()) // Middleware
-server.use('/koders', kodersRouter)
+server.use('/user', userRouter)
 server.use('/auth', authRouter)
 
 server.get('/', (request, response) => {
