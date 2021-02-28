@@ -1,17 +1,16 @@
 const mongoose = require('mongoose')
 
-const postSchema = new mongoose.Schema({
+const beerpostSchema = new mongoose.Schema({
   beerName: {
     type: String,
     minlength: 1,
     maxlength: 100,
-    trim: true,
     required: true
   },
   beerCost: {
     type: Number,
     min: 1,
-    max: 100,
+    max: 5000,
     required: true
   },
   beerProducer: {
@@ -21,7 +20,7 @@ const postSchema = new mongoose.Schema({
     required: true
   },
   beerLocation: {
-    type: String,
+    type: Array,
     required: true
   }
 })

@@ -8,7 +8,7 @@ const router = express.Router()
 router.post('/', async (request, response) => {
     const {
         email,
-        username,
+    username,
         password
     } = request.body
     const userCreated = await user.create(email, username, password)

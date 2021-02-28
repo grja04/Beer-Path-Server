@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const articleSchema = new mongoose.Schema({
-    tittle:{
+    title:{
     type: String,
     required: true
     },
@@ -9,7 +9,7 @@ const articleSchema = new mongoose.Schema({
     type: String,
     require: true
     },
-    beerType: {
+    beerId: {
     type: String,
     required: true
     },
@@ -18,10 +18,6 @@ const articleSchema = new mongoose.Schema({
     required: true
     },
     author: {
-        type: String,
-        required:true
-    },
-    description:{
         type: String,
         required:true
     },
