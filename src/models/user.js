@@ -18,3 +18,5 @@ const userSchema = new mongoose.Schema({
         min: 1
       }
 })
+
+module.exports = userSchema //falta exportar modelos
