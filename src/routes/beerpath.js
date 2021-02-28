@@ -1,16 +1,13 @@
 const express = require('express')
 const beerpath = require('./../usecases/beerpath')
+const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()
 
 //user//
 
 router.post('/', async (request, response) => {
-    const {
-        email,
-        username,
-        password
-    } = request.body
+    const { email, username, password } = request.body
     const userCreated = await user.create(email, username, password)
 
     response.json({
