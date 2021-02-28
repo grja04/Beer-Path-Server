@@ -27,3 +27,5 @@ const articleSchema = new mongoose.Schema({
     }
 
 })
+
+module.exports = articleSchema

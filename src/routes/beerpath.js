@@ -1,5 +1,5 @@
 const express = require('express')
-const beerpath = require('./../usecases/beerpath')
+const beerUser = require('../Usecases/beerUser') //las rutas estan mal y no se hace referencia alo que necesitas
 
 const router = express.Router()
 

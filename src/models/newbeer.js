@@ -25,6 +25,4 @@ const beerpostSchema = new mongoose.Schema({
   }
 })
 
-const model = mongoose.model('post', schema)
-
-module.exports = model
+module.exports = postSchema
