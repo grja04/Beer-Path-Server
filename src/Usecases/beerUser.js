@@ -1,31 +1,28 @@
 
-const User = require('../models/')
+const user = require('../models/user')
 
 function getAll (){
-  return User.find({})
+  return user.find({})
 }
 
 function getById (id){
-  return User.findById(id)
+  return user.findById(id)
 }
 
-function create (email, username ){
-  return User.create({email, username})
+function create (userName, email ){
+  return user.create({userName, email})
 }
 
-function deleteById (id){
-  return User.finByIdAndDelete(id)
-}
 
-function updateById(id, email, username){
-  return User.findByIdAndUpdate(id, {email, username})
+
+function updateById(id, userName, email ){
+  return user.findByIdAndUpdate(id, {userName, email})
 }
 
 module.exports = {
   getAll,
   getById,
   create,
-  deleteById,
   updateById
 
 }

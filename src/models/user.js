@@ -19,4 +19,4 @@ const userSchema = new mongoose.Schema({
       }
 })
 
-module.exports = userSchema //falta exportar modelos
+module.exports = mongoose.model('user', userSchema) //falta exportar modelos

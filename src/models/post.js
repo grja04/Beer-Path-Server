@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-
-const articleSchema = new mongoose.Schema({
+ //checar con Ochoa
+const postBeer = new mongoose.Schema({
     title:{
     type: String,
     required: true
@@ -24,8 +24,12 @@ const articleSchema = new mongoose.Schema({
     imageurl:{
         type:String,
         required:true
-    }
+    },
+    beerLocation: {
+        type: Array,
+        required: true
+      }
 
 })
 
-module.exports = articleSchema
+module.exports = mongoose.model('postBeerLocation', postBeer )

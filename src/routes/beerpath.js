@@ -1,6 +1,6 @@
 const express = require('express')
 const beerUser = require('../Usecases/beerUser') //las rutas estan mal y no se hace referencia alo que necesitas
-
+//que estas buscando importar de usesCases? Donde y para que se va a ocupar?
 const router = express.Router()
 
 //user//
@@ -8,7 +8,7 @@ const router = express.Router()
 router.post('/', async (request, response) => {
     const {
         email,
-    username,
+        username,
         password
     } = request.body
     const userCreated = await user.create(email, username, password)

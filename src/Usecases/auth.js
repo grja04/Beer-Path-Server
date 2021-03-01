@@ -1,15 +1,15 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const User = require('../models/user')
+const user = require('../models/user')
 
-async function signup (email, username, password){
+async function signup (userName, email, password){
   const passwordCrypt = await bcrypt.hash(password, 10)
-  return User.create({email, username, password: passwordCrypt})
+  return user.create({userName, email, password: passwordCrypt})
 }
 
 async function login (email, password){
-const userFound = await User.findOne({email})
+const userFound = await user.findOne({email})
 
 if (!userFound) throw new Error('Invalid data')
 
