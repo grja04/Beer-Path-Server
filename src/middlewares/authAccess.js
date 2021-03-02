@@ -7,7 +7,7 @@ function authAccess (request, response, next){
     if (!token) {
       throw new Error('Invalid Credentials')
     }
-    const loadDecoded = jwt.verify(token, 'Rod1234')
+    const loadDecoded = jwt.verify(token, JWT_SECRET)
     
   }
   

@@ -3,18 +3,20 @@ const jwt = require('jsonwebtoken')
 
 const user = require('../models/user')
 
-async function signup (userName, email, password){
+async function signup (email, userName, password){
   const passwordCrypt = await bcrypt.hash(password, 10)
-  return user.create({userName, email, password: passwordCrypt})
+  return User.create({email, userName, password: passwordCrypt})
 }
 
-async function login (email, password){
-const userFound = await user.findOne({email})
+async function login (userName, password){
+
+const userFound = await User.findOne({userName})
 
 if (!userFound) throw new Error('Invalid data')
 
-const passwordValid = await bcrypt.compare(password, userFound.password)
- if (!passwordValid) throw new Error('Invalid data')
+const ispasswordValid = await bcrypt.compare(password, userFound.password)
+
+ if (!ispasswordValid) throw new Error('Invalid data')
 
 const token = jwt.sign({id: userFound._id}, process.env.JWT_SECRET)
 
