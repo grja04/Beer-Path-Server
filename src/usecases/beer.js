@@ -1,5 +1,5 @@
 
-const Beer = require('./../models/newbeer')
+const Beer = require('./../models/beer')
 
 // function beerGetAll (){
 //   return Beer.find({})

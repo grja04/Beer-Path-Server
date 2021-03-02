@@ -1,5 +1,5 @@
 const express = require('express')
-const beerpost = require('./../usecases/beerpost')
+const beerpost = require('../usecases/post')
 
 
 const router = express.Router()

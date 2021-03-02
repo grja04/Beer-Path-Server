@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const beerpostSchema = new mongoose.Schema({
+const beerSchema = new mongoose.Schema({
   beerName: {
     type: String,
     minlength: 1,
@@ -25,5 +25,5 @@ const beerpostSchema = new mongoose.Schema({
   }
 })
 
-const modelBeer = mongoose.model('beer', beerpostSchema)
+const modelBeer = mongoose.model('beer', beerSchema)
 module.exports = modelBeer

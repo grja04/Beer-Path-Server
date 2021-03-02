@@ -1,5 +1,5 @@
 const express = require('express')
-const user = require('./../usecases/beeruser')
+const user = require('../usecases/user')
 const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()

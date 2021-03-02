@@ -3,7 +3,7 @@ const auth = require('./../usecases/auth')
 
 const router = express.Router()
 
-//autientificacion/ signup
+//auth/signup
 
 router.post('/signup', async (request, response) => {
     try {
@@ -24,7 +24,7 @@ router.post('/signup', async (request, response) => {
 })
 
 
-//autentificacion / login /
+//auth/ login /
 router.post('/login', async (request, response) => {
     try {
         const { userName, password } = request.body
