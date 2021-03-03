@@ -4,56 +4,60 @@ const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()
 
-router.get('/', authMiddleware, async (request, response) => {
-    const allUser = await user.getAll()
-  
-    response.json({
-      success: true,
-      data: allUser
-    })
-  })
-
-router.get('/:id', authMiddleware, async (request, response) => {
-
-    const userById = await user.getById(request.params.id)
-  
-    response.json({
-      success: true,
-      data: userById
-    })
-  })
-
 router.post('/', async (request, response) => {
+  try {
     const { email, userName, password } = request.body
     const userCreated = await user.create(email, userName, password)
     
     response.json({
       success: true,
       data: userCreated
-
     })
-  })
+  } catch (error) {
+    response.status(500)
+    response.json({
+      success: false,
+      message: error.message
+    })
+  }
+})
 
 router.delete('/:id', async (request, response) => {
+  try{
     const userDeleted = await user.findByIdAndDelete(request.params.id)
   
     response.json({
       success: true,
       data: userDeleted
     })
-  })
+  } catch (error) {
+    response.status(500)
+    response.json({
+      success: false,
+      message: error.message
+    })
+  }
+})
 
 
 router.patch('/:id', async (request, response) => {
+  try{
     const id = request.params.id
-    const { email, username } = request.body //problemas con el id en este punto
+    const { email, userName } = request.body 
   
-    const userPatch = await user.findByIdAndUpdate(id, {email, username})
+    const userUpdated = await user.findByIdAndUpdate(id, email, userName)
   
     response.json({
       success: true,
       data: userUpdated
     })
-   })
+   } catch (error) {
+     response.status(500)
+     response.json({
+       success: false,
+       message: error.message
+     })
+   }
+  })
   
 module.exports = router

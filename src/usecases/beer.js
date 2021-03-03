@@ -9,24 +9,24 @@ const Beer = require('./../models/beer')
 //   return Beer.findById(id)
 // }
 
-function beerCreate (beerName, beerCost, beerProducer, beerLocation ) {
+function create (beerName, beerCost, beerProducer, beerLocation ) {
   return Beer.create({beerName, beerCost, beerProducer, beerLocation})
 }
 
 
-// function beerDeleteById (id){
-//   return Beer.finByIdAndDelete(id)
-// }
+function deleteById (id){
+  return Beer.finByIdAndDelete(id)
+}
 
-// function beerUpdateById(id, email, userName){
-//   return Beer.findByIdAndUpdate(id, {email, userName})
-// }
+function updateById(id, email, userName){
+  return Beer.findByIdAndUpdate(id, {email, userName})
+}
 
 module.exports = {
   // beerGetAll,
   // beerGetById,
-  beerCreate,
-  // beerDeleteById,
-  // beerUpdateById
+  create,
+  deleteById,
+  updateById
 
 }

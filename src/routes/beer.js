@@ -23,6 +23,22 @@ router.post('/', async (request, response) =>{
     }
 })
 
+router.delete('/:id', async (request, response) => {
+    try{
+        const beerDeleted = await beer.deleteById(request.params.id)
+
+        response.json({
+            succes: true,
+            data: beerDeleted
+        })
+    } catch (error) {
+        response.status(300)
+        response.json ({
+            success: false,
+            message: error.message
+        })
+    }
+})
 
 
 module.exports = router
