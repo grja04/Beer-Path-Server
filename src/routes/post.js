@@ -1,10 +1,10 @@
 const express = require('express')
 const post = require('../usecases/post')
-
+const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()
 
-router.post('/', async (request, response) =>{
+router.post('/', authMiddleware, async (request, response) =>{
     try{
     const { title, content, beerId, date, author, imageurl } = request.body
     const postCreated = await post.create(title, content, beerId, date, author, imageurl)
@@ -22,7 +22,7 @@ router.post('/', async (request, response) =>{
 }
 })
 
-router.delete('/:id', async (request, response) => {
+router.delete('/:id', authMiddleware, async (request, response) => {
     try{
         const postDeleted = await post.deleteById(request.params.id)
 
@@ -39,7 +39,7 @@ router.delete('/:id', async (request, response) => {
     }
 })
 
-router.patch('/:id', async (request, response) => {
+router.patch('/:id', authMiddleware, async (request, response) => {
     try{
       const id = request.params.id
       const { title, content, beerId, date, author, imageurl } = request.body 
@@ -58,5 +58,39 @@ router.patch('/:id', async (request, response) => {
        })
      }
     })
+router.get('/', authMiddleware, async (request, response) => {
+    try{
+      const allPost = await post.getAll()
+               
+      response.json({
+          succes: true,
+          data: allPost
+               })
+     } catch (error) {
+       response.status(300)
+       response.json ({
+          success: false,
+          message: error.message
+               })
+           }
+       })
+     
+router.get('/:id', authMiddleware, async (request, response) => {
+    try{
+      const onePost = await post.getById(request.params.id)
+                   
+       response.json({
+           succes: true,
+           data: onePost
+                   })
+     } catch (error) {
+        response.status(300)
+        response.json ({
+          success: false,
+          message: error.message
+               })
+           }
+        })
+
 
 module.exports = router

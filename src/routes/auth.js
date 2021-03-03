@@ -1,5 +1,6 @@
+
 const express = require('express')
-const auth = require('./../usecases/auth')
+const auth = require('../usecases/auth')
 
 const router = express.Router()
 

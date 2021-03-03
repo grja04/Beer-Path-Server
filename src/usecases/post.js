@@ -14,8 +14,18 @@ function updateById (id, title, content, beerId, date, author, imageurl){
   return Post.findByIdAndUpdate(id, {title, content, beerId, date, author, imageurl})
 }
 
+function getAll (){
+  return Post.find({})
+}
+
+ function getById (id){
+  return Post.findById(id)
+}
+
 module.exports = {
     create,
     deleteById,
-    updateById
+    updateById,
+    getAll,
+    getById
 }

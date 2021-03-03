@@ -8,7 +8,7 @@ const server = express()
 
 server.use(cors())
 server.use(express.json()) // Middleware
-server.use('/user', userRouter)
+// server.use('/user', userRouter)
 server.use('/auth', authRouter)
 server.use('/beer', beerRouter)
 server.use('/post', postRouter)
