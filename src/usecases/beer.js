@@ -14,12 +14,12 @@ function create (beerName, beerCost, beerProducer, beerLocation ) {
 }
 
 
-function deleteById (id){
-  return Beer.finByIdAndDelete(id)
+function deleteById (id) {
+  return Beer.findByIdAndDelete(id)
 }
 
-function updateById(id, email, userName){
-  return Beer.findByIdAndUpdate(id, {email, userName})
+function updateById(id, beerName, beerCost, beerProducer, beerLocation){
+  return Beer.findByIdAndUpdate(id, {beerName, beerCost, beerProducer, beerLocation})
 }
 
 module.exports = {

@@ -24,7 +24,7 @@ router.post('/', async (request, response) => {
 
 router.delete('/:id', async (request, response) => {
   try{
-    const userDeleted = await user.findByIdAndDelete(request.params.id)
+    const userDeleted = await user.deleteById(request.params.id)
   
     response.json({
       success: true,
@@ -45,7 +45,7 @@ router.patch('/:id', async (request, response) => {
     const id = request.params.id
     const { email, userName } = request.body 
   
-    const userUpdated = await user.findByIdAndUpdate(id, email, userName)
+    const userUpdated = await user.updateById(id, email, userName)
   
     response.json({
       success: true,

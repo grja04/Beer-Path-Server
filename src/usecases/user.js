@@ -14,11 +14,11 @@ function create (email, userName, password ) {
 }
 
 function deleteById (id) {
-  return User.finByIdAndDelete(id)
+  return User.findByIdAndDelete(id)
 }
 
 function updateById (id, email, userName){
-  return User.findByIdAndUpdate(id, email, userName)
+  return User.findByIdAndUpdate(id, {email, userName})
 }
 
 module.exports = {
