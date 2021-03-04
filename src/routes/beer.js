@@ -4,6 +4,8 @@ const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()
 
+// beer/
+
 router.post('/', authMiddleware, async (request, response) =>{
         try{
         const { beerName, beerCost, beerProducer, beerLocation } = request.body

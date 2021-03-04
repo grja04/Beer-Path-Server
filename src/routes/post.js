@@ -4,6 +4,8 @@ const authMiddleware = require('../middlewares/auth')
 
 const router = express.Router()
 
+//post/
+
 router.post('/', authMiddleware, async (request, response) =>{
     try{
     const { title, content, beerId, date, author, imageurl } = request.body

@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     match: /^.+@.+\..+$/,
     minlength: 3,
-    maxlength: 25,
+    maxlength: 50,
     unique: true
   },
   userName: {
