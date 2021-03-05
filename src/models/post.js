@@ -24,7 +24,11 @@ const postSchema = new mongoose.Schema({
     imageurl:{
         type:String,
         required:true
-    }
+    },
+    beerLocation: {
+        type: Array,
+        required: true
+      }
 
 })
 

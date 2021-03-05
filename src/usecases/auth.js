@@ -27,24 +27,24 @@ return token
 //   return User.find({})
 // }
 
-function getById (id){
-  return User.findById(id)
-}
+// function getById (id){
+//   return User.findById(id)
+// }
 
-function deleteById (id) {
-  return User.findByIdAndDelete(id)
-}
+// function deleteById (id) {
+//   return User.findByIdAndDelete(id)
+// }
 
-function updateById (id, email, userName){
-  return User.findByIdAndUpdate(id, {email, userName})
-}
+// function updateById (id, email, userName){
+//   return User.findByIdAndUpdate(id, {email, userName})
+// }
 
 
 
 module.exports = {
   signup,
   login,
-  getById,
-  deleteById,
-  updateById
+  // getById,
+  // deleteById,
+  // updateById
 }
