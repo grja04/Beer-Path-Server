@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const user = require('../models/user')
+const User = require('../models/user')
 
 async function signup (email, userName, password){
   const passwordCrypt = await bcrypt.hash(password, 10)
@@ -23,7 +23,28 @@ const token = jwt.sign({id: userFound._id}, process.env.JWT_SECRET)
 return token
 }
 
+// function getAll (){
+//   return User.find({})
+// }
+
+// function getById (id){
+//   return User.findById(id)
+// }
+
+// function deleteById (id) {
+//   return User.findByIdAndDelete(id)
+// }
+
+// function updateById (id, email, userName){
+//   return User.findByIdAndUpdate(id, {email, userName})
+// }
+
+
+
 module.exports = {
   signup,
-  login
+  login,
+  // getById,
+  // deleteById,
+  // updateById
 }

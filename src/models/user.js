@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     match: /^.+@.+\..+$/,
     minlength: 3,
-    maxlength: 25,
+    maxlength: 50,
     unique: true
   },
   userName: {
@@ -24,4 +24,4 @@ const userSchema = new mongoose.Schema({
 })
 
 const model = mongoose.model('user', userSchema)
-module.exports = model //falta exportar modelos
+module.exports = model 
