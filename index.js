@@ -7,7 +7,7 @@ const port = '8080'
 
 db.connect
 .then(()=>{ 
-    server.listen('8080', ()=> { 
+    server.listen(process.env.PORT, ()=> { 
         console.log('Server is listening')
     })
 })
