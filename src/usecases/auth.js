@@ -18,7 +18,7 @@ const ispasswordValid = await bcrypt.compare(password, userFound.password)
 
  if (!ispasswordValid) throw new Error('Invalid data')
 
-const token = jwt.sign({id: userFound._id}, process.env.JWT_SECRET)
+const token = jwt.sign({data: 'foobar', id: userFound._id}, process.env.JWT_SECRET, { expiresIn: '0.5h' })
 
 return token
 }
