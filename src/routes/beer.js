@@ -8,8 +8,8 @@ const router = express.Router()
 
 router.post('/', authMiddleware, async (request, response) =>{
         try{
-        const { beerName, beerCost, beerProducer, beerLocation } = request.body
-        const beerCreated = await beer.create(beerName, beerCost, beerProducer, beerLocation)
+        const { beerName, beerProducer } = request.body
+        const beerCreated = await beer.create( beerName, beerProducer)
 
         response.json({
             success: true,
@@ -44,9 +44,9 @@ router.delete('/:id', authMiddleware, async (request, response) => {
 router.patch('/:id', authMiddleware, async (request, response) => {
     try{
       const id = request.params.id
-      const { beerName, beerCost, beerProducer, beerLocation } = request.body 
+      const { beerName, beerProducer} = request.body 
     
-      const beerUpdated = await beer.updateById(id, beerName, beerCost, beerProducer, beerLocation)
+      const beerUpdated = await beer.updateById(id, beerName, beerProducer)
     
       response.json({
         success: true,

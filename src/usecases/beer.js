@@ -1,16 +1,16 @@
 
 const Beer = require('./../models/beer')
 
-function create (beerName, beerCost, beerProducer, beerLocation ) {
-  return Beer.create({beerName, beerCost, beerProducer, beerLocation})
+function create (beerName, beerProducer) {
+  return Beer.create({beerName, beerProducer})
 }
 
 function deleteById (id) {
   return Beer.findByIdAndDelete(id)
 }
 
-function updateById(id, beerName, beerCost, beerProducer, beerLocation){
-  return Beer.findByIdAndUpdate(id, {beerName, beerCost, beerProducer, beerLocation})
+function updateById(id, beerName, beerProducer){
+  return Beer.findByIdAndUpdate(id, {beerName,  beerProducer})
 }
 
 function getAll (){

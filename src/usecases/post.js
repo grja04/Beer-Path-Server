@@ -2,16 +2,16 @@
 const Post = require('../models/post')
 
 
-function create (title, content, beerId, date, author, imageurl ) {
-  return Post.create({title, content, beerId, date, author, imageurl})
+function create (author, beerName, location, price, review, date ) {
+  return Post.create({author, beerName, location, price, review, date})
 }
 
 function deleteById (id) {
   return Post.findByIdAndDelete(id)
 }
 
-function updateById (id, title, content, beerId, date, author, imageurl){
-  return Post.findByIdAndUpdate(id, {title, content, beerId, date, author, imageurl})
+function updateById (id, author, beerName, location, price, review, date){
+  return Post.findByIdAndUpdate(id, {author, beerName, location, price, review, date})
 }
 
 function getAll (){
