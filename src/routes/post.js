@@ -8,8 +8,8 @@ const router = express.Router()
 
 router.post('/', authMiddleware, async (request, response) =>{
     try{
-    const { title, content, beerId, date, author, imageurl } = request.body
-    const postCreated = await post.create(title, content, beerId, date, author, imageurl)
+    const { author, title, content, beerId, date, author, imageurl } = request.body
+    const postCreated = await post.create(author, title, content, beerId, date, author, imageurl)
 
     response.json({
         success: true,
@@ -44,9 +44,9 @@ router.delete('/:id', authMiddleware, async (request, response) => {
 router.patch('/:id', authMiddleware, async (request, response) => {
     try{
       const id = request.params.id
-      const { title, content, beerId, date, author, imageurl } = request.body 
+      const { author, title, content, beerId, date, producer, imageurl } = request.body 
     
-      const postUpdated = await post.updateById(id, title, content, beerId, date, author, imageurl)
+      const postUpdated = await post.updateById(id, author, title, content, beerId, date, producer, imageurl)
     
       response.json({
         success: true,
