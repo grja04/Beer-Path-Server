@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
+    author: {
+    type: String,
+    minlength: 1,
+    maxlength: 100,
+    required: true
+      },
     title:{
     type: String,
     required: true
