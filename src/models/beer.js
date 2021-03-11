@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 
 const beerSchema = new mongoose.Schema({
+  author: {
+    type: String,
+    minlength: 1,
+    maxlength: 100,
+    required: true
+      },
   beerName: {
     type: String,
     minlength: 1,
