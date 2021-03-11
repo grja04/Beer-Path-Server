@@ -2,8 +2,8 @@
 const Post = require('../models/post')
 
 
-function create (title, content, beerId, date, author, imageurl ) {
-  return Post.create({title, content, beerId, date, author, imageurl})
+function create (author, title, content, beerId, date, producer, imageurl ) {
+  return Post.create({author, title, content, beerId, date, producer, imageurl})
 }
 
 function deleteById (id) {
